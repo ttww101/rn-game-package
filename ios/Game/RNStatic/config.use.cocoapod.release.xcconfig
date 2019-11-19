@@ -1,0 +1,13 @@
+//
+//  Config.xcconfig
+//  Game
+//
+//  Created by Jack on 2019/9/24.
+//  Copyright © 2019 Facebook. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "Pods/Target Support Files/Pods-Game/Pods-Game.release.xcconfig"
+#include "config.release.xcconfig"

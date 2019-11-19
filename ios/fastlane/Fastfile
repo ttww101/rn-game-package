@@ -1,0 +1,25 @@
+default_platform(:ios)
+
+import "deliver_to_app_store.rb"
+import "setup.rb"
+
+lane :do do
+	action = UI.select("Select your lane: ", 
+		[
+			"show_project_info",
+			"add_app_to_app_store_connect",
+			"upload_metadata",
+		]
+	)
+	UI.message action
+	
+	if action == "show_project_info"
+		show_project_info
+	elsif action == "add_app_to_app_store_connect"
+		add_app_to_app_store_connect
+		upload_metadata
+	elsif action == "upload_metadata"
+		upload_metadata
+	end
+	
+end

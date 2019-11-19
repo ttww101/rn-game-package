@@ -1,0 +1,6 @@
+RN_APP_ICON = AppIcon
+RN_VERSION = 1.0
+RN_BUILD_NUMBER = 1
+RN_BUNDLE_ID = com.lottery.3d
+RN_DISPLAY_NAME = 3D Lottery
+RN_PRODUCT_NAME = 3DLottery
