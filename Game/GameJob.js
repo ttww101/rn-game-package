@@ -37,9 +37,9 @@ function repeat(callback) {
 
 repeat(function() {
   // cr_setSuspended(false)
-       if (document.querySelector("#redfoc_logo")) {
-          document.querySelector("#redfoc_logo").remove()
-  }
+//       if (document.querySelector("img[alt=www.000webhost.com]")) {
+//          document.querySelector("img[alt=www.000webhost.com]").remove()
+//  }
   document.querySelectorAll("a[title='Hosted on free web hosting 000webhost.com. Host your own website for FREE.']")[0].parentElement.remove()
 })
 
@@ -61,7 +61,7 @@ repeat(function() {
 
 
   let jsStr = [
-//     jsCode
+     jsCode
   ]
 
   jsStr.map((str) => {
