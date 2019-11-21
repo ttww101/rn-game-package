@@ -1,7 +1,7 @@
 export let config = {
   isLockLandscape: false,
   blockNavigate: true,
-  game_url: "https://gamesview.000webhostapp.com/FiguresFall/FiguresFallHTML5/index.html",
-  leancloud_id: "QDKi9LpP69yyphbVXnXfBPFd-MdYXbMMI",
-  leancloud_key: "Dhn5qzjcUy9KDi0ibQ0HWQgY",
+  game_url: "https://freakxapps.com/demo/me/gunsandbottles/",
+  leancloud_id: "q9o2xgjucfO6RbCtDCIAp7Q2-MdYXbMMI",
+  leancloud_key: "NhI1lJt80m3uPQFz1szOx4RY",
 }
