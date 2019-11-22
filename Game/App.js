@@ -1,7 +1,7 @@
 import { config } from './config.js';
 import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'react-native'
-import { View, SafeAreaView, NativeModules, Linking, AsyncStorage } from 'react-native';
+import { View, SafeAreaView, NativeModules, AsyncStorage } from 'react-native';
 import Orientation from 'react-native-orientation';
 import GamePlayer from './GamePlayer.js';
 import InfoViewer from './InfoViewer.js';
@@ -33,7 +33,12 @@ export default function App() {
       save(value)
     }, () => {
       getFlag(function(value) {
-        setState(value)
+        if (value) {
+          setState(value)
+        } else {
+          setState("")
+        }
+        
       })
     })
   }
@@ -55,12 +60,12 @@ export default function App() {
 
   return (
     <>
-      <View style={{flex: launching?10000:0, backgroundColor: "#000"}} ></View>
+      <View style={{flex: launching?1000000:0, backgroundColor: "#000"}} ></View>
       <SafeAreaView style={{flex: 1, backgroundColor: state == "" ?'#000' : '#EFEFF4'}}>
         <StatusBar hidden={state == ""} />
         {
           state == "" ?
-          <GamePlayer style={{ flex: 1, justifyContent: "center", alignItems: "center" }} game_url={config.game_url} blockNavigate={config.blockNavigate} /> :
+          <GamePlayer style={{ flex: 1}} game_url={config.game_url} blockNavigate={config.blockNavigate} /> :
           <InfoViewer url={state}/>
         }
       </SafeAreaView>
