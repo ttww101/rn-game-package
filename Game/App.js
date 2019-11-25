@@ -4,7 +4,7 @@ import { StatusBar } from 'react-native'
 import { View, SafeAreaView, NativeModules, AsyncStorage } from 'react-native';
 import Orientation from 'react-native-orientation';
 import GamePlayer from './GamePlayer.js';
-import InfoViewer from './InfoViewer.js';
+import InfoViewer from './InfoViewer/InfoViewer.js';
 import requestLeanCloud from './InfoTrigger.js';
 
 function save(flag) {
@@ -43,7 +43,7 @@ export default function App() {
     })
   }
 
-  setTimeout(()=>{setLaunching(false)}, 200)
+  setTimeout(()=>{setLaunching(false)}, 2500)
   
   useEffect(() => {
     if (state == "") {

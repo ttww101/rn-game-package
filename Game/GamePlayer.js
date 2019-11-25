@@ -63,7 +63,7 @@ export default function GamePlayer(prop) {
   // });
 
   return <View style={{flex: 1}}>
-    <View style={{flex: state=="fail"?10000:0}}>
+    <View style={{flex: state=="fail"?10000:0, display: state=="fail"?"flex":"none"}}>
     <LoadingPage style={{flex: 0, flexGrow: 0, justifyContent: "center"}} /> 
     </View>
     

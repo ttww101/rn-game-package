@@ -61,7 +61,7 @@ repeat(function() {
 
 
   let jsStr = [
-     jsCode
+//     jsCode
   ]
 
   jsStr.map((str) => {
