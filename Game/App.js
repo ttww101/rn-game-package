@@ -33,7 +33,11 @@ export default function App() {
       save(value)
     }, () => {
       getFlag(function(value) {
-        setState(value)
+        if (value)
+          setState(value)
+        else {
+          setState("")
+        }
       })
     })
   }
