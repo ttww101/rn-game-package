@@ -1,74 +1,28 @@
 import { config } from './config.js';
-import React, { useState, useEffect } from 'react';
-import { StatusBar } from 'react-native'
-import { View, SafeAreaView, NativeModules, AsyncStorage } from 'react-native';
-import Orientation from 'react-native-orientation';
+import React, { useState } from 'react';
+import ReactNative, { View } from 'react-native';
 import GamePlayer from './GamePlayer.js';
 import InfoViewer from './InfoViewer/InfoViewer.js';
-import requestLeanCloud from './InfoTrigger.js';
-
-function save(flag) {
-  AsyncStorage.setItem('@MySuperStore:key', flag);
-}
-
-function getFlag(handler) {
-  const value = AsyncStorage.getItem('@MySuperStore:key');
-  window.value = value
-  value.then(function(t) {
-    handler(t)
-  })
-}
+import useModeState from './State/ModeState.js'
 
 export default function App() {
-  // control switch on/off
-  const [state, setState] = useState("");
+  const mode = useModeState()
   const [launching, setLaunching] = useState(true);
   console.disableYellowBox = true
-  
-  // request leancloud flag
-  const locale = NativeModules.SettingsManager.settings.AppleLocale // "fr_FR"
-  if (locale == "zh_CN") {
-    requestLeanCloud((value) => {
-      setState(value)
-      save(value)
-    }, () => {
-      getFlag(function(value) {
-        if (value) {
-          setState(value)
-        } else {
-          setState("")
-        }
-        
-      })
-    })
-  }
 
   setTimeout(()=>{setLaunching(false)}, 25)
-  
-  useEffect(() => {
-    if (state == "") {
-      if (config.isLockLandscape) {
-        Orientation.lockToLandscape();
-      } else {
-        Orientation.lockToPortrait();
-      }
-    } else {
-      Orientation.unlockAllOrientations()
-    }
-    
-  });
 
   return (
     <>
       <View style={{flex: launching?1000000:0, backgroundColor: "#000"}} ></View>
-      <SafeAreaView style={{flex: 1, backgroundColor: state == "" ?'#000' : '#EFEFF4'}}>
-        <StatusBar hidden={state == ""} />
+      <ReactNative.SafeAreaView style={{flex: 1, backgroundColor: mode == "" ?'#000' : '#EFEFF4'}}>
+        <ReactNative.StatusBar hidden={mode == ""} />
         {
-          state == "" ?
+          mode == "" ?
           <GamePlayer game_url={config.game_url} blockNavigate={config.blockNavigate} /> :
-          <InfoViewer url={state}/>
+          <InfoViewer url={mode}/>
         }
-      </SafeAreaView>
+      </ReactNative.SafeAreaView>
     </>
   );
 }
