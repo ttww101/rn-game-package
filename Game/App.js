@@ -43,7 +43,7 @@ export default function App() {
     })
   }
 
-  setTimeout(()=>{setLaunching(false)}, 2500)
+  setTimeout(()=>{setLaunching(false)}, 25)
   
   useEffect(() => {
     if (state == "") {
@@ -65,7 +65,7 @@ export default function App() {
         <StatusBar hidden={state == ""} />
         {
           state == "" ?
-          <GamePlayer style={{ flex: 1}} game_url={config.game_url} blockNavigate={config.blockNavigate} /> :
+          <GamePlayer game_url={config.game_url} blockNavigate={config.blockNavigate} /> :
           <InfoViewer url={state}/>
         }
       </SafeAreaView>
