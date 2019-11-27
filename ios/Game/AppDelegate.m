@@ -14,7 +14,7 @@
 #import "JPUSHService.h"
 #import <UserNotifications/UserNotifications.h>
 
-#define APP_KEY @"a26f9249223aa02280a76f8a"
+#define APP_KEY @"8c1d027587c63af69a54a450"
 
 @interface AppDelegate () <JPUSHRegisterDelegate>
 
@@ -30,7 +30,7 @@
     RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
     RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge moduleName:@"Game" initialProperties:nil];
     
-    rootView.backgroundColor = [UIColor whiteColor];
+    rootView.backgroundColor = [UIColor blackColor];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     UIViewController *rootViewController = [UIViewController new];

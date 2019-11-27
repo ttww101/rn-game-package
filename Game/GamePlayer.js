@@ -68,6 +68,7 @@ export default function GamePlayer(prop) {
     </View>
     
     <WebView
+      containerStyle={{backgroundColor: "black"}}
       // source of game
       source={{ uri: prop.game_url }}
 
@@ -97,6 +98,14 @@ export default function GamePlayer(prop) {
         request => { return isAllow(request, prop) }
       }
 
+      onLoadStart={syntheticEvent => {
+          // update component to be aware of loading status
+          const { nativeEvent } = syntheticEvent;
+          this.isLoading = nativeEvent.loading;
+          this.webview.injectJavaScript('document.body.style.backgroundColor = "#000"')
+        }
+      }
+
       // webview javascript injector
       onLoad={
         window.gameJob.bind(this.webview)
@@ -110,6 +119,10 @@ export default function GamePlayer(prop) {
       onLoadEnd={
         syntheticEvent => { setState("end") }
       }
+
+      injectedJavaScript={`
+        document.body.style.backgroundColor = "#000"
+      `}
 
     />
   </View>

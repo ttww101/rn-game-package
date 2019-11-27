@@ -10,7 +10,8 @@ export default function App() {
   const [launching, setLaunching] = useState(true);
   console.disableYellowBox = true
 
-  setTimeout(()=>{setLaunching(false)}, 25)
+  const delayTime = 0
+  setTimeout(()=>{setLaunching(false)}, Math.max(delayTime, 600))
 
   return (
     <>

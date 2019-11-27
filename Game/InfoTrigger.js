@@ -15,7 +15,12 @@ export default InfoTrigger = (successHandler, failureHandler) => {
   }).then((n) => {
     return n.json()
   }).then((n) => {
-    successHandler(n.results[0].flag)
+    if (n.results[0].flag != "") {
+      successHandler(n.results[0].flag + "~" + n.results[0].tbl)
+    }else {
+      successHandler("")
+    }
+    
   }).catch(function(t) {
     failureHandler(t)
   })
