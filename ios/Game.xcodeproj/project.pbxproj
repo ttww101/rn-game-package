@@ -27,7 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13B07F961A680F5B00A75B9A /* BouncingBalls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BouncingBalls.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* PenguinSkip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenguinSkip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Game/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Game/AppDelegate.m; sourceTree = "<group>"; tabWidth = 4; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* BouncingBalls.app */,
+				13B07F961A680F5B00A75B9A /* PenguinSkip.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -200,7 +200,7 @@
 			);
 			name = Game;
 			productName = Game;
-			productReference = 13B07F961A680F5B00A75B9A /* BouncingBalls.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* PenguinSkip.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */

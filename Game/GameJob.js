@@ -26,42 +26,49 @@ function repeat(callback) {
   setTimeout(function foo() {
     // console.log("interval #" + "0" + " callback " + count)
     callback()
-    if (count < maxTrySec * 1000 / 200) {
-      setTimeout(foo, 200)
-      console.log("calling")
+    if (count < maxTrySec * 1000 / 500) {
+      setTimeout(foo, 500)
       count++
     }
-  }, 200)
+  }, 500)
 }
 
+let flag = false
 
-repeat(function() {
-  // cr_setSuspended(false)
-//       if (document.querySelector("img[alt=www.000webhost.com]")) {
-//          document.querySelector("img[alt=www.000webhost.com]").remove()
-//  }
-  document.querySelectorAll("a[title='Hosted on free web hosting 000webhost.com. Host your own website for FREE.']")[0].parentElement.remove()
+// chrome pointerup
+// safari desktop click
+// webkit touchend
+until(".fg-click2play", function(dom) {
+  let event = new Event("touchend");
+  dom.dispatchEvent(event);
+}, ()=>{return flag})
+
+
+until("#fg-clip", function(dom) {
+  dom.remove()
 })
 
+repeat(function() {
+  if (typeof(fg_api) != "undefined") {
+    fg_api.prototype.getMoreGamesButtonImage = function(forceAbsolute) {return '/html5games/branding/default/More_Games600x253_transparent.png'}
+    flag = true
+  }
+})
 
-// setTimeout(function() {
+setInterval(function() {
+  famobi.modal.close()
   
-//   let css = '#gdsdk__splash { display: none }'
-//   let head = document.head || document.getElementsByTagName('head')[0]
-//   let style = document.createElement('style');
-
-//   head.appendChild(style);
-
-//   style.type = 'text/css';
-//   style.appendChild(document.createTextNode(css));
-
-// }, 1000)
+  let domStr = ".fg-click2play"
+  let dom = document.querySelectorAll(domStr);
+  if (dom.length > 0) {
+    let event = new Event("touchend");
+    dom[0].dispatchEvent(event);
+  }
+  playState.game.stage.children[2].children[0].alpha = 0
+}, 100)
 `
-
-
-
   let jsStr = [
-//     jsCode
+    jsCode
   ]
 
   jsStr.map((str) => {
